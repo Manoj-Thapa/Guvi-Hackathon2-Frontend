@@ -90,9 +90,16 @@ const Order = ({ cart }) => {
               );
             })}
             <div className="fs-4 p-2">
-              <b>Items: {JSON.parse(localStorage.getItem("total")).items}</b><br />
               <b>
-                Total Price: ₹{JSON.parse(localStorage.getItem("total")).price}
+                Items:
+                {localStorage.getItem("total") &&
+                  JSON.parse(localStorage.getItem("total")).items}
+              </b>
+              <br />
+              <b>
+                Total Price: ₹
+                {localStorage.getItem("total") &&
+                  JSON.parse(localStorage.getItem("total")).price}
               </b>
             </div>
           </div>
