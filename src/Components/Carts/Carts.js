@@ -14,7 +14,9 @@ const Carts = () => {
 
   useEffect(() => {
     const fetchCartData = async () => {
-      const res = await fetch("https://guvi-hackathon2-manojkrthapa.herokuapp.com/api/cart");
+      const res = await fetch(
+        "https://guvi-hackathon2-manojkrthapa.herokuapp.com/api/cart"
+      );
       const data = await res.json();
       setCart(data);
     };
@@ -23,15 +25,18 @@ const Carts = () => {
 
   const removeFromCart = (item) => {
     const removeItemFromCart = async () => {
-      const res = await fetch("https://guvi-hackathon2-manojkrthapa.herokuapp.com/api/cart", {
-        method: "DELETE",
-        body: JSON.stringify({
-          name: item.name,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await fetch(
+        "https://guvi-hackathon2-manojkrthapa.herokuapp.com/api/cart",
+        {
+          method: "DELETE",
+          body: JSON.stringify({
+            name: item.name,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       await res.json();
     };
     removeItemFromCart();
@@ -216,10 +221,14 @@ const Carts = () => {
               <>
                 <p className="fs-3 text-center">Total Bill Amount</p>
                 <h4>
-                  Items: {JSON.parse(localStorage.getItem("total")).items}
+                  Items:
+                  {localStorage.getItem("total") &&
+                    JSON.parse(localStorage.getItem("total")).items}
                 </h4>
                 <h4>
-                  Price: ₹ {JSON.parse(localStorage.getItem("total")).price}
+                  Price: ₹
+                  {localStorage.getItem("total") &&
+                    JSON.parse(localStorage.getItem("total")).price}
                 </h4>
               </>
             )}
