@@ -43,7 +43,7 @@ const Order = ({ cart }) => {
               <div className="col-md-12">
                 <label htmlFor="address" className="form-label mt-2">
                   Address
-                </label>
+                </label> 
                 <input
                   type="text"
                   id="address"
